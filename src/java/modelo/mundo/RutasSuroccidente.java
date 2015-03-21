@@ -94,7 +94,14 @@ public class RutasSuroccidente {
 	 * @return la marca con en nombre si no se encuentra una marca con el nombre como parametro null
 	 */
 	public Marca buscarMarca(String nNombre){
-		
+            Marca retorno= null;
+            for(int i=0; i<marcas.size();i++){
+                String miNombre= marcas.get(i).getNombre();
+                if(miNombre.equals(nNombre)){
+                    retorno= marcas.get(i);
+                }
+            }
+            return retorno;
 	}
 	
 	
@@ -105,7 +112,9 @@ public class RutasSuroccidente {
 	 * @param nNombre el nombre por el cual se elimina la marca
 	 */
 	public void eliminarMarca(String nNombre){
-		
+            Marca buscada= buscarMarca(nNombre);
+            marcas.remove(buscada);
+            marcaDAO.eliminar(buscada);
 	}
 	
 	
@@ -114,9 +123,12 @@ public class RutasSuroccidente {
 	 * <b>pre:</b> se ha inicializado la lista de marcas y el atributo marcasDAO<br>
 	 * <b>post:</b> se ha modificado la marca con el nombre pasado como paramtro
 	 * @param nNombre el nuevo nombre de la marca
+         * @param vNombre el viejo nombre de la marca
 	 */
-	public void modificarMarca(String nNombre){
-		
+	public void modificarMarca(String nNombre, String vNombre){
+            Marca buscada= buscarMarca(vNombre);
+            buscada.setNombre(nNombre);
+            marcaDAO.actualizar(buscada,vNombre);
 	}
 	
 	
@@ -127,7 +139,12 @@ public class RutasSuroccidente {
 	 * @param nNombre el nombre de la marca
 	 */
 	public void agregarMarca(String nNombre){
-		
+            Marca buscada= buscarMarca(nNombre);
+            if(buscada==null){
+                Marca agregar= new Marca(nNombre);
+                marcas.add(agregar);
+                marcaDAO.agregar(agregar);
+            }
 	}
 	
 	

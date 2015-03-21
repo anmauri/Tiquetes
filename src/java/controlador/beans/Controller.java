@@ -36,7 +36,7 @@ public class Controller {
      * metodo que permite obtener una instancian del mudo si no la hay la crea
      * @return la instancia del mundo
      */
-    public RutasSuroccidente darInstanciaControlador(){
+    public RutasSuroccidente darInstanciaMundo(){
         if(mundo==null){
             return new RutasSuroccidente();
         }

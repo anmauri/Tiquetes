@@ -44,8 +44,9 @@ public class MarcaDAO {
 	 * <b>pre:</b> El atributo fachadaDB ha sido inicializado<br>
 	 * <b>post:</b> Se ha modificado la marca ingresada como parametro
 	 * @param nMarca La marca actualizar en la base de datos nMarca!=null
+         * @param vNombre el viejo nombre de la marca
 	 */
-	public void actualizar(Marca nMarca){
+	public void actualizar(Marca nMarca, String vNombre){
 		
 	}
 	

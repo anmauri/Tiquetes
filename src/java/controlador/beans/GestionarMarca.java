@@ -32,6 +32,12 @@ public class GestionarMarca extends Controller{
     
     
     /**
+     * el viejo nombre de las marcas
+     */
+    private String viejoNombre;
+    
+    
+    /**
      * crea una nueva instancia de GestionarMarca
      */
     public GestionarMarca() {
@@ -41,21 +47,33 @@ public class GestionarMarca extends Controller{
     
     
     public void agregar(){
-        
+        mundo= super.darInstanciaMundo();
+        mundo.agregarMarca(marca.getNombre());
+        restablecerLista();
     }
-    public void eliminar(){
-        
+    public void eliminar(Marca marca){
+        mundo= super.darInstanciaMundo();
+        mundo.eliminarMarca(marca.getNombre());
+        restablecerLista();
     }
     public void modificar(){
-        
+        mundo= super.darInstanciaMundo();
+        mundo.modificarMarca(marca.getNombre(), viejoNombre);
     }
     public void buscar(){
-        
+        Marca m= super.darInstanciaMundo().buscarMarca(marca.getNombre());
+        if(m!=null){
+            listaMarcas.add(m);
+        }
+        else{
+            listaMarcas= new ArrayList<Marca>();
+        }
     }
-    public void restablecerBusqueda(){
-        listaMarcas= super.darInstanciaControlador();
+    public void restablecerLista(){
+        listaMarcas= super.darInstanciaMundo().getMarcas();
     }
-    public void redireccionarVistaModificar(){
+    public void redireccionarVistaModificar(Marca marcaSeleccionada){
+        viejoNombre= marcaSeleccionada.getNombre();
         super.redireccionarVista("");
     }
     /**
@@ -91,5 +109,23 @@ public class GestionarMarca extends Controller{
      */
     public static void setListaMarcas(ArrayList<Marca> listaMarcas) {
         GestionarMarca.listaMarcas = listaMarcas;
+    }
+
+    
+    /**
+     * metodo que permite obtener aceso al antigui nombre de una marca
+     * @return el antigui nombre una marca
+     */
+    public String getViejoNombre() {
+        return viejoNombre;
+    }
+
+    
+    /**
+     * metodoq que permite establecer el viejo nombre de una marca
+     * @param viejoNombre parametro para establecer el viejo nombre de la marca
+     */
+    public void setViejoNombre(String viejoNombre) {
+        this.viejoNombre = viejoNombre;
     }
 }
