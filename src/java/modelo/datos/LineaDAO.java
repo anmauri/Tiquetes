@@ -41,8 +41,9 @@ public class LineaDAO {
 	 * Metodo encargado de actualizar la información de una línea en la base de datos
 	 * @param nMarca
 	 * @param nLinea
+         * @param vNombre 
 	 */
-	public void actualizar(Marca nMarca, Linea nLinea){
+	public void actualizar(Marca nMarca, Linea nLinea, String vNombre){
 	
 	}
 	

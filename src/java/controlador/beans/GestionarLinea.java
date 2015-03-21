@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import modelo.mundo.Linea;
+import modelo.mundo.Marca;
 
 /**
  *
@@ -25,12 +26,50 @@ public class GestionarLinea extends Controller{
     private Linea linea;
     private static ArrayList<Linea> listaLineas;
     private String viejoNombre;
+    private ArrayList<Marca> marcas;
+    private Marca marcaSeleccionada;
     /**
      * crea una nueva instancia de GestionarLinea
      */
     public GestionarLinea() {
         linea = new Linea("");
         listaLineas= new ArrayList<Linea>();
+        marcas= super.darInstanciaMundo().getMarcas();
+        marcaSeleccionada = new Marca("");
     }
     
+    public void agregar(){
+        super.darInstanciaMundo().agregarLinea(marcaSeleccionada.getNombre(), linea.getNombre());
+        restablecerLista();
+    }
+    public void modificar(){
+        mundo= super.darInstanciaMundo();
+        mundo.modificarLinea(linea.getNombre(), viejoNombre);
+    }
+    public void eliminar(){
+        mundo= super.darInstanciaMundo();
+        mundo.eliminarLinea(linea.getNombre());
+        restablecerLista();
+    }
+    public void buscar(){
+        Linea l= super.darInstanciaMundo().buscarLinea(linea.getNombre());
+        if(l!=null){
+            listaLineas.add(l);
+        }
+        else{
+            listaLineas= new ArrayList<Linea>();
+        }
+    }
+    public void restablecerLista(){
+        mundo= super.darInstanciaMundo();
+        for(int i=0;i<mundo.getMarcas().size();i++){
+            for(int j=0;j<mundo.getMarcas().get(i).getLineas().size();j++){
+                listaLineas.add(mundo.getMarcas().get(i).getLineas().get(j));
+            }
+        }
+    }
+    public void redireccionarVistaModificar(Linea lineaSeleccionada){
+        viejoNombre= lineaSeleccionada.getNombre();
+        super.redireccionarVista("");
+    }
 }

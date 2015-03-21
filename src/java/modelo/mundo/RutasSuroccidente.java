@@ -161,7 +161,17 @@ public class RutasSuroccidente {
 	 * @return la linea con en nombre si no se encuentra una linea con el nombre como parametro null
 	 */
 	public Linea buscarLinea(String nNombre){
-		
+            Linea retorno=null;
+		for(int i=0; i<marcas.size();i++){
+                    ArrayList<Linea> lineas = marcas.get(i).getLineas();
+                    for(int j=0; j<lineas.size(); j++){
+                        Linea linea= lineas.get(j);
+                        if(linea.getNombre().equals(nNombre)){
+                            retorno=linea;
+                        }
+                    }
+                }
+            return retorno;
 	}
 	
 	
@@ -172,7 +182,21 @@ public class RutasSuroccidente {
 	 * @param nNombre el nombre por el cual se elimina la linea
 	 */
 	public void eliminarLinea(String nNombre){
-		
+            Marca marcaE=null;
+            Linea buscada = buscarLinea(nNombre);
+            for(int i=0;i<marcas.size();i++){
+                Marca marca= marcas.get(i);
+                for(int j=0;j<marca.getLineas().size();j++){
+                    Linea linea= marca.getLineas().get(j);
+                    if(linea.getNombre().equals(nNombre)){
+                        marcaE=marca;
+                    }
+                }
+            }
+            if(marcaE!=null){
+                marcaE.getLineas().remove(buscada);
+                marcaE.getLineaDAO().eliminar(marcaE, buscada);
+            }
 	}
 	
 	
@@ -181,9 +205,24 @@ public class RutasSuroccidente {
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas
 	 * <b>post:</b> se ha modificado la linea con el nombre pasado como parametro
 	 * @param nNombre el nuevo nombre de la linea
+         * @param vNombre el viejo nombre de la linea
 	 */
-	public void modificarLinea(String nNombre){
-		
+	public void modificarLinea(String nNombre, String vNombre){
+            Marca marcaE=null;
+            Linea buscada = buscarLinea(vNombre);
+            for(int i=0;i<marcas.size();i++){
+                Marca marca= marcas.get(i);
+                for(int j=0;j<marca.getLineas().size();j++){
+                    Linea linea= marca.getLineas().get(j);
+                    if(linea.getNombre().equals(vNombre)){
+                        marcaE=marca;
+                    }
+                }
+            }
+            if(marcaE!=null){
+                buscada.setNombre(nNombre);
+                marcaE.getLineaDAO().actualizar(marcaE, buscada, vNombre);
+            }
 	}
 	
 	
@@ -191,10 +230,14 @@ public class RutasSuroccidente {
 	 * metodo que permite agregar una linea
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas
 	 * <b>post:</b> se ha agregao una linea con el nombre pasado como parametro
-	 * @param nNombre el nombre de la linea
+	 * @param nNombreLinea  el nombre de la linea
+         * @param nNombreMarca el nombre de la marca
 	 */
-	public void agregarLinea(String nNombre){
-		
+	public void agregarLinea(String nNombreMarca, String nNombreLinea){
+            Marca buscada= buscarMarca(nNombreMarca);
+            Linea nueva= new Linea(nNombreLinea);
+            buscada.getLineas().add(nueva);
+            buscada.getLineaDAO().agregar(buscada, nueva);
 	}
 	
 	
