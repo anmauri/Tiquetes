@@ -40,8 +40,42 @@ public class RutasSuroccidente {
 		marcas= new ArrayList<Marca>();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
+
+        
+        /**
+         * metofo que permite obterner el objeto para guardar una marca
+         * @return el objeto para obtener un marca
+         */
+        public MarcaDAO getMarcaDAO() {
+            return marcaDAO;
+        }
+
+        
+        /**
+         * metodo que establece el objet para guardar marcas
+         * @param marcaDAO el objeto a establecer
+         */
+        public void setMarcaDAO(MarcaDAO marcaDAO) {
+            this.marcaDAO = marcaDAO;
+        }
+
+        
+        /**
+         * metodo que permite obtener la lista de marcas
+         * @return el objeto de la lista de marcas
+         */
+        public ArrayList<Marca> getMarcas() {
+            return marcas;
+        }
+
+        
+        /**
+         * metodo que permite establecer la lista de marcas
+         * @param marcas la lista de marcas a establecer
+         */
+        public void setMarcas(ArrayList<Marca> marcas) {
+            this.marcas = marcas;
+        }
 	//-------------------------------------------------------------------------------------------
 	//REQUERIMIENTOS
 	//-------------------------------------------------------------------------------------------
