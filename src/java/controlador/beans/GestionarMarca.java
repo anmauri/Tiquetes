@@ -53,7 +53,7 @@ public class GestionarMarca extends Controller{
         
     }
     public void restablecerBusqueda(){
-        
+        listaMarcas= super.darInstanciaControlador();
     }
     public void redireccionarVistaModificar(){
         super.redireccionarVista("");
