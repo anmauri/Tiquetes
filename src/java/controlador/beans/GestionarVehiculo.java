@@ -39,7 +39,7 @@ public class GestionarVehiculo extends Controller{
     public void buscar(){
         
     }
-    public void restablecerBusqueda(){
+    public void restablecerLista(){
         
     }
     public void redireccionarVistaModificar(){

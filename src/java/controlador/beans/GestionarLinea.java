@@ -72,4 +72,46 @@ public class GestionarLinea extends Controller{
         viejoNombre= lineaSeleccionada.getNombre();
         super.redireccionarVista("");
     }
+
+    public Linea getLinea() {
+        return linea;
+    }
+
+    public void setLinea(Linea linea) {
+        this.linea = linea;
+    }
+
+    public static ArrayList<Linea> getListaLineas() {
+        return listaLineas;
+    }
+
+    public static void setListaLineas(ArrayList<Linea> listaLineas) {
+        GestionarLinea.listaLineas = listaLineas;
+    }
+
+    public String getViejoNombre() {
+        return viejoNombre;
+    }
+
+    public void setViejoNombre(String viejoNombre) {
+        this.viejoNombre = viejoNombre;
+    }
+
+    public ArrayList<Marca> getMarcas() {
+        return marcas;
+    }
+
+    public void setMarcas(ArrayList<Marca> marcas) {
+        this.marcas = marcas;
+    }
+
+    public Marca getMarcaSeleccionada() {
+        return marcaSeleccionada;
+    }
+
+    public void setMarcaSeleccionada(Marca marcaSeleccionada) {
+        this.marcaSeleccionada = marcaSeleccionada;
+    }
+    
+    
 }
