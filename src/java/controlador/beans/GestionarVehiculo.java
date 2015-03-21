@@ -14,7 +14,7 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class GestionarVehiculo {
+public class GestionarVehiculo extends Controller{
 
     /**
      * Creates a new instance of GestionarVehiculo

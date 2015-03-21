@@ -14,7 +14,7 @@ import javax.faces.bean.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
-public class GestionarPropietario {
+public class GestionarPropietario extends Controller{
 
     /**
      * Creates a new instance of GestionarPropietario
