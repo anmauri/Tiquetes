@@ -5,11 +5,11 @@ package modelo.mundo;
  * 
  * @author megasoft.
  * Universidad Mariana (Pasto - Colombia) 
- * Departamento de Ingeniería de Sistemas. 
+ * Departamento de Ingenierï¿½a de Sistemas. 
  */
 public class Cliente {
-	
-	/**prueba git
+    
+    
 	/**
 	 * Apellido del cliente
 	 */

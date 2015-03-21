@@ -5,8 +5,10 @@
  */
 package controlador.beans;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import modelo.mundo.Linea;
 
 /**
  *
@@ -16,10 +18,19 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class GestionarLinea extends Controller{
 
+    
     /**
-     * Creates a new instance of GestionarLinea
+     * objeto para encapsular los datos de la linea
+     */
+    private Linea linea;
+    private static ArrayList<Linea> listaLineas;
+    private String viejoNombre;
+    /**
+     * crea una nueva instancia de GestionarLinea
      */
     public GestionarLinea() {
+        linea = new Linea("");
+        listaLineas= new ArrayList<Linea>();
     }
     
 }
