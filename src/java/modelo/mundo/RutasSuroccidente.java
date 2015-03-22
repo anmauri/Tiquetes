@@ -307,10 +307,11 @@ public class RutasSuroccidente {
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas, vehiculos<br>
 	 * <b>post:</b> se  ha buscado y retornado el propietario con la identificacion pasada como paramtro
 	 * @param nIdentificacion la identificacion con la que se busca el propietario nIdentificacion!=null
+         * @param nPlaca la placa del vehiculo
 	 * @return el propietario la identificacion pasada como parametro de lo contrario null
 	 */
-	public Propietario buscarPropietario(int nIdentificacion){
-		
+	public Propietario buscarPropietario(int nIdentificacion, String nPlaca){
+            
 	}
 	
 	
@@ -319,8 +320,9 @@ public class RutasSuroccidente {
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas, vehiculos<br>
 	 * <b>post:</b> se ha eliminado el propitario del vehiculo con la palca pasada como parametro del programa y la base de datos
 	 * @param nPlaca la placa con el cual se elimina e vehiculo
+         * @param nIdentificacion la identificacion con la que se busca el propietario nIdentificacion!=null
 	 */
-	public void eliminarPorpietarioVehiculo(int nPlaca){
+	public void eliminarPorpietarioVehiculo(String nPlaca, int nIdentificacion){
 		
 	}
 	

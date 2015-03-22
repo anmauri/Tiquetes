@@ -60,10 +60,10 @@ public class GestionarVehiculo extends Controller{
         mundo=super.darInstanciaMundo();
         ArrayList<Marca> misMarcas = mundo.getMarcas();
         for(int i=0;i<misMarcas.size();i++){
-            Marca miMarca=listaMarcas.get(i);
+            Marca miMarca=misMarcas.get(i);
             ArrayList<Linea> misLineas= miMarca.getLineas();
             for(int j=0;j<misLineas.size();j++){
-                Linea miLinea = listaLineas.get(j);
+                Linea miLinea = misLineas.get(j);
                 ArrayList<Vehiculo> misVehiculos = miLinea.getVehiculos();
                 for(int k=0;k<misVehiculos.size();k++){
                     Vehiculo miVehiculo = misVehiculos.get(k);
