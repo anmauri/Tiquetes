@@ -79,4 +79,36 @@ public class GestionarPropietario extends Controller{
         propietario= nPropietario;
         super.redireccionarVista("");
     }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public ArrayList<Vehiculo> getListaVehiculos() {
+        return listaVehiculos;
+    }
+
+    public void setListaVehiculos(ArrayList<Vehiculo> listaVehiculos) {
+        this.listaVehiculos = listaVehiculos;
+    }
+
+    public ArrayList<Propietario> getListaPropietarios() {
+        return listaPropietarios;
+    }
+
+    public void setListaPropietarios(ArrayList<Propietario> listaPropietarios) {
+        this.listaPropietarios = listaPropietarios;
+    }
 }

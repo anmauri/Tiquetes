@@ -5,8 +5,10 @@
  */
 package controlador.beans;
 
+import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import modelo.mundo.Vehiculo;
 
 /**
  *
@@ -16,6 +18,9 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class GestionarCliente extends Controller{
 
+    
+    private Vehiculo vehiculo;
+    private ArrayList<Vehiculo> listaVehiculos;
     /**
      * Creates a new instance of GestionarCliente
      */
