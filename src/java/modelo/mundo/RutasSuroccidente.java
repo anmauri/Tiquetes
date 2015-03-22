@@ -310,7 +310,7 @@ public class RutasSuroccidente {
          * @param nPlaca la placa del vehiculo
 	 * @return el propietario la identificacion pasada como parametro de lo contrario null
 	 */
-	public Propietario buscarPropietario(int nIdentificacion, String nPlaca){
+	public Propietario buscarPropietario(int nIdentificacion){
             
 	}
 	
@@ -322,7 +322,7 @@ public class RutasSuroccidente {
 	 * @param nPlaca la placa con el cual se elimina e vehiculo
          * @param nIdentificacion la identificacion con la que se busca el propietario nIdentificacion!=null
 	 */
-	public void eliminarPorpietarioVehiculo(String nPlaca, int nIdentificacion){
+	public void eliminarPorpietarioVehiculo(int nIdentificacion){
 		
 	}
 	
