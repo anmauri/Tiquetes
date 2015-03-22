@@ -254,7 +254,6 @@ public class RutasSuroccidente {
 	 * @return el vehiculo con la placa pasada como parametro de lo contrario null
 	 */
 	public Vehiculo buscarVehiculo(String nPlaca){
-		
 	}
 	
 	
@@ -273,14 +272,11 @@ public class RutasSuroccidente {
 	 * metodo que permite modificar un vehiculo
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas y vehiculos<br>
 	 * <b>post:</b> se ha modificado los datos del vehiculo por los pasados como parametro
-	 * @param nMarca la marca del vehiculo nMarca !=""
-	 * @param nLinea la linea del vehucilo nLinea!=""
 	 * @param nModelo el modelo del vehiculo nModelo>0
-	 * @param nPlaca la placa del vehiculo nPlaca!=""
 	 * @param nNumeroPasajeros el numero de pasajeros del vehiculos nNumeroPasajeros>0 
 	 * @param nFotografia la fotografia del vehiculo nFotografia !=null
 	 */
-	public void modificarVehiculo(String nMarca, String nLinea, int nModelo, String nPlaca, int nNumeroPasajeros, BufferedImage nFotografia){
+	public void modificarVehiculo(int nModelo, int nNumeroPasajeros, BufferedImage nFotografia){
 		
 	}
 	
