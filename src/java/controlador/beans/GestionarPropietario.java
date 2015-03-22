@@ -39,13 +39,22 @@ public class GestionarPropietario extends Controller{
         restablecerLista();
     }
     public void eliminar(){
-        
+        mundo= super.darInstanciaMundo();
+        mundo.eliminarPorpietarioVehiculo(propietario.getIdentificacion());
+        restablecerLista();
     }
     public void modificar(){
-        
+        mundo= super.darInstanciaMundo();
+        mundo.modificarPropietario(propietario.getApellidos(), propietario.getDireccion(), propietario.getIdentificacion(), propietario.getNombres(), propietario.getTelefono());
     }
     public void buscar(){
-        
+        Propietario p= super.darInstanciaMundo().buscarPropietario(propietario.getIdentificacion());
+        if(p!=null){
+            listaPropietarios.add(p);
+        }
+        else{
+            listaPropietarios= new ArrayList<Propietario>();
+        }
     }
     public void restablecerLista(){
         mundo=super.darInstanciaMundo();
