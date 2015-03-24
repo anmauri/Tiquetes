@@ -44,22 +44,21 @@ public class GestionarMarca extends Controller{
     public GestionarMarca() {
         marca= new Marca("");
         listaMarcas= new ArrayList<Marca>();
-        mundo= new RutasSuroccidente();
     }
     
     
     public void agregar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.agregarMarca(marca.getNombre());
         restablecerLista();
     }
     public void eliminar(Marca marca){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.eliminarMarca(marca.getNombre());
         restablecerLista();
     }
     public void modificar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.modificarMarca(marca.getNombre(), viejoNombre);
     }
     public void buscar(){

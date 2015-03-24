@@ -12,6 +12,7 @@ import modelo.mundo.Vehiculo;
 import java.util.ArrayList;
 import modelo.mundo.Linea;
 import modelo.mundo.Marca;
+import modelo.mundo.RutasSuroccidente;
 
 /**
  *
@@ -39,12 +40,12 @@ public class GestionarPropietario extends Controller{
         restablecerLista();
     }
     public void eliminar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.eliminarPorpietarioVehiculo(propietario.getIdentificacion());
         restablecerLista();
     }
     public void modificar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.modificarPropietario(propietario.getApellidos(), propietario.getDireccion(), propietario.getIdentificacion(), propietario.getNombres(), propietario.getTelefono());
     }
     public void buscar(){
@@ -57,7 +58,7 @@ public class GestionarPropietario extends Controller{
         }
     }
     public void restablecerLista(){
-        mundo=super.darInstanciaMundo();
+        RutasSuroccidente mundo=super.darInstanciaMundo();
         ArrayList<Marca> misMarcas = mundo.getMarcas();
         for(int i=0;i<misMarcas.size();i++){
             Marca miMarca=misMarcas.get(i);

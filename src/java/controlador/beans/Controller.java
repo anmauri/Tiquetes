@@ -22,7 +22,7 @@ public class Controller {
     /**
      * objeto que permite acceder al mundo del problema
      */
-    protected RutasSuroccidente mundo;
+    private RutasSuroccidente mundo;
     
     
     /**
@@ -38,7 +38,8 @@ public class Controller {
      */
     public RutasSuroccidente darInstanciaMundo(){
         if(mundo==null){
-            return new RutasSuroccidente();
+            mundo=new RutasSuroccidente();
+            return mundo;
         }
         else{
             return mundo;
@@ -58,23 +59,5 @@ public class Controller {
         catch(Exception e){
             e.printStackTrace();
         }
-    }
-    
-    
-    /**
-     * metodo que retorna la instancia del mundo
-     * @return la instancia del mundo
-     */
-    public RutasSuroccidente getMundo() {
-        return mundo;
-    }
-
-    
-    /**
-     * metodo que permite establecer una instancia del mundo
-     * @param mundo la instancia del mundo a cambiar
-     */
-    public void setMundo(RutasSuroccidente mundo) {
-        this.mundo = mundo;
     }
 }

@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import modelo.mundo.Linea;
 import modelo.mundo.Marca;
+import modelo.mundo.RutasSuroccidente;
 
 /**
  *
@@ -43,11 +44,11 @@ public class GestionarLinea extends Controller{
         restablecerLista();
     }
     public void modificar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.modificarLinea(linea.getNombre(), viejoNombre);
     }
     public void eliminar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.eliminarLinea(linea.getNombre());
         restablecerLista();
     }
@@ -61,7 +62,7 @@ public class GestionarLinea extends Controller{
         }
     }
     public void restablecerLista(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         for(int i=0;i<mundo.getMarcas().size();i++){
             for(int j=0;j<mundo.getMarcas().get(i).getLineas().size();j++){
                 listaLineas.add(mundo.getMarcas().get(i).getLineas().get(j));

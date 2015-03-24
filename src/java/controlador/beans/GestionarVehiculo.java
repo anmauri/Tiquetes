@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import modelo.mundo.Linea;
 import modelo.mundo.Marca;
+import modelo.mundo.RutasSuroccidente;
 import modelo.mundo.Vehiculo;
 
 /**
@@ -39,12 +40,12 @@ public class GestionarVehiculo extends Controller{
         restablecerLista();
     }
     public void eliminar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.eliminarVehiculo(vehiculo.getPlaca());
         restablecerLista();
     }
     public void modificar(){
-        mundo= super.darInstanciaMundo();
+        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.modificarVehiculo(vehiculo.getModelo(), vehiculo.getNumeroPasajeros(), vehiculo.getFotografia());
     }
     public void buscar(){
@@ -57,7 +58,7 @@ public class GestionarVehiculo extends Controller{
         }
     }
     public void restablecerLista(){
-        mundo=super.darInstanciaMundo();
+        RutasSuroccidente mundo=super.darInstanciaMundo();
         ArrayList<Marca> misMarcas = mundo.getMarcas();
         for(int i=0;i<misMarcas.size();i++){
             Marca miMarca=misMarcas.get(i);
