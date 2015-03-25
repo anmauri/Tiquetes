@@ -29,6 +29,7 @@ public class Controller {
      * crea una nueva instancia de Controller
      */
     public Controller() {
+        mundo=RutasSuroccidente.darInstancia();
     }
     
     
@@ -38,7 +39,7 @@ public class Controller {
      */
     public RutasSuroccidente darInstanciaMundo(){
         if(mundo==null){
-            mundo=new RutasSuroccidente();
+            mundo=RutasSuroccidente.darInstancia();
             return mundo;
         }
         else{

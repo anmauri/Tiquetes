@@ -46,7 +46,7 @@ public class GestionarMarca extends Controller{
     public GestionarMarca() {
         marca= new Marca("");
         listaMarcas= new ArrayList<Marca>();
-        mundo= RutasSuroccidente.darInstancia();
+        mundo= super.darInstanciaMundo();
     }
     
     
@@ -55,7 +55,6 @@ public class GestionarMarca extends Controller{
         restablecerLista();
     }
     public void eliminar(Marca marca){
-        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.eliminarMarca(marca.getNombre());
         restablecerLista();
     }
@@ -73,7 +72,7 @@ public class GestionarMarca extends Controller{
         }
     }
     public void restablecerLista(){
-        listaMarcas= super.darInstanciaMundo().getMarcas();
+        listaMarcas= mundo.getMarcas();
     }
     public void redireccionarVistaModificar(Marca marcaSeleccionada){
         viejoNombre= marcaSeleccionada.getNombre();

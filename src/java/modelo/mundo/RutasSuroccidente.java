@@ -42,7 +42,7 @@ public class RutasSuroccidente {
 	 * metodo constructor de la calse RutasSuroccidente
 	 * <b>post:</b> se ha construido una intancia de la clase RutasSuroccidente
 	 */
-	public RutasSuroccidente() {
+	private RutasSuroccidente() {
 		marcaDAO= new MarcaDAO();
 		marcas= new ArrayList<Marca>();
 		// TODO Auto-generated constructor stub
