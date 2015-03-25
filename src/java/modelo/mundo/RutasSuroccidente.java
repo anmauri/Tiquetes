@@ -261,7 +261,22 @@ public class RutasSuroccidente {
 	 * @return el vehiculo con la placa pasada como parametro de lo contrario null
 	 */
 	public Vehiculo buscarVehiculo(String nPlaca){
-            
+            Vehiculo retorno=null;
+            for(int i=0;i<marcas.size();i++){
+                Marca miMarca = marcas.get(i);
+                ArrayList<Linea> misLineas = miMarca.getLineas();
+                for(int j=0;j<misLineas.size();j++){
+                    Linea miLinea = misLineas.get(j);
+                    ArrayList<Vehiculo> misVehiculos = miLinea.getVehiculos();
+                    for(int k=0;k<misVehiculos.size();k++){
+                        Vehiculo miVehiculo = misVehiculos.get(k);
+                        if(miVehiculo.getPlaca().equals(nPlaca)){
+                            retorno= miVehiculo;
+                        }
+                    }
+                }
+            }
+            return retorno;
 	}
 	
 	
@@ -272,7 +287,21 @@ public class RutasSuroccidente {
 	 * @param nPlaca la placa con la cual se elimina el vehiculo
 	 */
 	public void eliminarVehiculo(String nPlaca){
-		
+            for(int i=0;i<marcas.size();i++){
+                Marca miMarca = marcas.get(i);
+                ArrayList<Linea> misLineas = miMarca.getLineas();
+                for(int j=0;j<misLineas.size();j++){
+                    Linea miLinea = misLineas.get(j);
+                    ArrayList<Vehiculo> misVehiculos = miLinea.getVehiculos();
+                    for(int k=0;k<misVehiculos.size();k++){
+                        Vehiculo miVehiculo = misVehiculos.get(k);
+                        if(miVehiculo.getPlaca().equals(nPlaca)){
+                            misVehiculos.remove(miVehiculo);
+                            miLinea.getVehiculoDAO().eliminar(miMarca, miLinea, miVehiculo);
+                        }
+                    }
+                }
+            }
 	}
 	
 	
@@ -284,8 +313,24 @@ public class RutasSuroccidente {
 	 * @param nNumeroPasajeros el numero de pasajeros del vehiculos nNumeroPasajeros>0 
 	 * @param nFotografia la fotografia del vehiculo nFotografia !=null
 	 */
-	public void modificarVehiculo(int nModelo, int nNumeroPasajeros, BufferedImage nFotografia){
-		
+	public void modificarVehiculo(int nModelo, int nNumeroPasajeros, BufferedImage nFotografia, String nPlaca){
+            for(int i=0;i<marcas.size();i++){
+                Marca miMarca = marcas.get(i);
+                ArrayList<Linea> misLineas = miMarca.getLineas();
+                for(int j=0;j<misLineas.size();j++){
+                    Linea miLinea = misLineas.get(j);
+                    ArrayList<Vehiculo> misVehiculos = miLinea.getVehiculos();
+                    for(int k=0;k<misVehiculos.size();k++){
+                        Vehiculo miVehiculo = misVehiculos.get(k);
+                        if(miVehiculo.getPlaca().equals(nPlaca)){
+                            miVehiculo.setFotografia(nFotografia);
+                            miVehiculo.setModelo(nModelo);
+                            miVehiculo.setNumeroPasajeros(nNumeroPasajeros);
+                            miLinea.getVehiculoDAO().actualizar(miMarca, miLinea, miVehiculo);
+                        }
+                    }
+                }
+            }
 	}
 	
 	
@@ -301,7 +346,11 @@ public class RutasSuroccidente {
 	 * @param nFotografia la fotografia del vehiculo nFotografia !=null
 	 */
 	public void agregarVehiculo(String nMarca, String nLinea, int nModelo, String nPlaca, int nNumeroPasajeros, BufferedImage nFotografia){
-		
+            Linea linea= buscarLinea(nLinea);
+            Marca marca= buscarMarca(nMarca);
+            Vehiculo v= new Vehiculo(nModelo, nPlaca, nNumeroPasajeros, nFotografia);
+            linea.getVehiculos().add(v);
+            linea.getVehiculoDAO().agregar(marca, linea, v);
 	}
 	
 	
@@ -319,7 +368,23 @@ public class RutasSuroccidente {
 	 * @return el propietario la identificacion pasada como parametro de lo contrario null
 	 */
 	public Propietario buscarPropietario(int nIdentificacion){
-            
+            Propietario retorno=null;
+            for(int i=0;i<marcas.size();i++){
+                Marca miMarca = marcas.get(i);
+                ArrayList<Linea> misLineas = miMarca.getLineas();
+                for(int j=0;j<misLineas.size();j++){
+                    Linea miLinea = misLineas.get(j);
+                    ArrayList<Vehiculo> misVehiculos = miLinea.getVehiculos();
+                    for(int k=0;k<misVehiculos.size();k++){
+                        Vehiculo miVehiculo = misVehiculos.get(k);
+                        Propietario miPropietario = miVehiculo.getPropietario();
+                        if(miPropietario.getIdentificacion()==nIdentificacion){
+                            retorno= miPropietario;
+                        }
+                    }
+                }
+            }
+            return retorno;
 	}
 	
 	
@@ -331,7 +396,7 @@ public class RutasSuroccidente {
          * @param nIdentificacion la identificacion con la que se busca el propietario nIdentificacion!=null
 	 */
 	public void eliminarPorpietarioVehiculo(int nIdentificacion){
-		
+            
 	}
 	
 	
@@ -382,7 +447,7 @@ public class RutasSuroccidente {
 		
 	}
 	
-	
+        
 	/**
 	 * metodo que permite eliminar una cliente del programa<br>
 	 * <b>pre:</b> se ha inicializado la lista de maracas, lineas, vehiculos, tiquetes<br>

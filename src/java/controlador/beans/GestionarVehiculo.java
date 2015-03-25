@@ -46,7 +46,7 @@ public class GestionarVehiculo extends Controller{
     }
     public void modificar(){
         RutasSuroccidente mundo= super.darInstanciaMundo();
-        mundo.modificarVehiculo(vehiculo.getModelo(), vehiculo.getNumeroPasajeros(), vehiculo.getFotografia());
+        mundo.modificarVehiculo(vehiculo.getModelo(), vehiculo.getNumeroPasajeros(), vehiculo.getFotografia(), vehiculo.getPlaca());
     }
     public void buscar(){
         Vehiculo v= super.darInstanciaMundo().buscarVehiculo(vehiculo.getPlaca());
