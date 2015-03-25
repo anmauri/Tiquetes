@@ -6,6 +6,7 @@
 package controlador.beans;
 
 import java.util.ArrayList;
+import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import modelo.mundo.Marca;
@@ -19,6 +20,7 @@ import modelo.mundo.RutasSuroccidente;
 @RequestScoped
 public class GestionarMarca extends Controller{
 
+    private RutasSuroccidente mundo;
     
     /**
      * objeto para encapsular datos de la marca
@@ -29,7 +31,7 @@ public class GestionarMarca extends Controller{
     /**
      * lista para mostrar la informaciond de la marca
      */
-    private static ArrayList<Marca> listaMarcas;
+    private static List<Marca> listaMarcas;
     
     
     /**
@@ -44,11 +46,11 @@ public class GestionarMarca extends Controller{
     public GestionarMarca() {
         marca= new Marca("");
         listaMarcas= new ArrayList<Marca>();
+        mundo= RutasSuroccidente.darInstancia();
     }
     
     
     public void agregar(){
-        RutasSuroccidente mundo= super.darInstanciaMundo();
         mundo.agregarMarca(marca.getNombre());
         restablecerLista();
     }
@@ -99,7 +101,7 @@ public class GestionarMarca extends Controller{
      * metodo que permite btener la lista de marcas
      * @return la lista de mascas
      */
-    public ArrayList<Marca> getListaMarcas() {
+    public List<Marca> getListaMarcas() {
         return listaMarcas;
     }
 
@@ -108,7 +110,7 @@ public class GestionarMarca extends Controller{
      * metodo que permite establecer la lista de marcas
      * @param listaMarcas la lista de marcas a establecer
      */
-    public void setListaMarcas(ArrayList<Marca> listaMarcas) {
+    public void setListaMarcas(List<Marca> listaMarcas) {
         GestionarMarca.listaMarcas = listaMarcas;
     }
 

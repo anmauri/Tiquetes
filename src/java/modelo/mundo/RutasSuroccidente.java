@@ -26,11 +26,18 @@ public class RutasSuroccidente {
 	private ArrayList<Marca> marcas;
 	
 	
+        private static RutasSuroccidente instancia;
 	//-------------------------------------------------------------------------------------------
 	//Constructor
 	//-------------------------------------------------------------------------------------------
 	
-	
+	public static RutasSuroccidente darInstancia(){
+            if(instancia==null){
+                instancia= new RutasSuroccidente();
+            }
+            return instancia;
+        }
+        
 	/**
 	 * metodo constructor de la calse RutasSuroccidente
 	 * <b>post:</b> se ha construido una intancia de la clase RutasSuroccidente
@@ -254,6 +261,7 @@ public class RutasSuroccidente {
 	 * @return el vehiculo con la placa pasada como parametro de lo contrario null
 	 */
 	public Vehiculo buscarVehiculo(String nPlaca){
+            
 	}
 	
 	
